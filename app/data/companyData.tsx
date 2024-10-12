@@ -1,5 +1,6 @@
 export const companyData = [
   {
+    id: 1,
     name: "Google",
     hqLocation: "Mountain View, CA",
     foundedYear: 1998,
@@ -7,8 +8,10 @@ export const companyData = [
     estHeadcount: "100,000+",
     website: "https://www.google.com",
     jobsLink: "https://careers.google.com",
+    description: "Google is a multinational technology company specializing in internet-related services and products, including search engines, cloud computing, software, and hardware.",
   },
   {
+    id: 2,
     name: "SpaceX",
     hqLocation: "Hawthorne, CA",
     foundedYear: 2002,
@@ -16,8 +19,10 @@ export const companyData = [
     estHeadcount: "10,000+",
     website: "https://www.spacex.com",
     jobsLink: "https://www.spacex.com/careers",
+    description: "SpaceX is an aerospace manufacturer and space transportation services company, known for developing reusable rockets and spacecraft to reduce space transportation costs.",
   },
   {
+    id: 3,
     name: "Tesla",
     hqLocation: "Austin, TX",
     foundedYear: 2003,
@@ -25,5 +30,28 @@ export const companyData = [
     estHeadcount: "100,000+",
     website: "https://www.tesla.com",
     jobsLink: "https://www.tesla.com/careers",
+    description: "Tesla is an electric vehicle and clean energy company, focusing on electric car manufacturing, battery energy storage, and solar panel and solar roof tile manufacturing.",
+  },
+  {
+    id: 4,
+    name: "Boston Dynamics",
+    hqLocation: "Waltham, MA",
+    foundedYear: 1992,
+    estFunding: "$500M+",
+    estHeadcount: "1,000+",
+    website: "https://www.bostondynamics.com",
+    jobsLink: "https://www.bostondynamics.com/careers",
+    description: "Boston Dynamics is an engineering and robotics design company known for developing highly advanced robots, including the humanoid Atlas and the quadruped Spot.",
+  },
+  {
+    id: 5,
+    name: "DeepMind",
+    hqLocation: "London, UK",
+    foundedYear: 2010,
+    estFunding: "$1B+",
+    estHeadcount: "1,000+",
+    website: "https://www.deepmind.com",
+    jobsLink: "https://deepmind.com/careers",
+    description: "DeepMind is a leading artificial intelligence research laboratory, focusing on developing advanced AI systems and applying them to solve complex scientific and technological challenges.",
   },
 ];

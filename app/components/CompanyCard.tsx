@@ -8,6 +8,7 @@ interface CompanyCardProps {
   estHeadcount: string;
   website: string;
   jobsLink: string;
+  description: string;
 }
 
 const CompanyCard: React.FC<CompanyCardProps> = ({
@@ -18,6 +19,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
   estHeadcount,
   website,
   jobsLink,
+  description,
 }) => {
   return (
     <Box
@@ -42,6 +44,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
           <Badge colorScheme="blue">{hqLocation}</Badge>
           <Badge colorScheme="green">Founded {foundedYear}</Badge>
         </Flex>
+        <Text fontSize="sm">{description}</Text>
         <HStack spacing={4} fontSize="sm">
           <Text><strong>Funding:</strong> {estFunding}</Text>
           <Text><strong>Headcount:</strong> {estHeadcount}</Text>

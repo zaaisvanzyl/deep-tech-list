@@ -1,5 +1,4 @@
 import { Box, Flex, Spacer, Link, Button } from "@chakra-ui/react";
-import NextLink from "next/link";
 
 
 const Navbar = () => {
@@ -11,8 +10,6 @@ const Navbar = () => {
         </Link>
         <Spacer />
         <Flex gap={4}>
-          <Link color="white">About</Link>
-          <Link color="white">Companies</Link>
           <Button colorScheme="teal" size="sm">
             Submit Company
           </Button>

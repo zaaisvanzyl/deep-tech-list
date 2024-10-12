@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, VStack, Container } from "@chakra-ui/react";
+import { Box, VStack, Container, Text, Link } from "@chakra-ui/react";
 import Navbar from "./components/Navbar";
 import CompanyCard from "./components/CompanyCard";
 import { companyData } from "./data/companyData";
@@ -21,10 +21,19 @@ export default function Home() {
               estHeadcount={company.estHeadcount}
               website={company.website}
               jobsLink={company.jobsLink}
+              description={company.description}
             />
           ))}
         </VStack>
       </Container>
+      <Box as="footer" textAlign="center" py={4} bg="gray.800" color="white">
+        <Text>
+          Made in 🇨🇦 by{" "}
+          <Link href="https://twitter.com/zaaisvanzyl" isExternal color="teal.200">
+            @zaaisvanzyl
+          </Link>
+        </Text>
+      </Box>
     </Box>
   );
 }
