@@ -7,4 +7,5 @@ export enum Industry {
   Space = "Space",
   Software = "Software",
   AI = "AI",
+  Nuclear = "Nuclear",
 }
