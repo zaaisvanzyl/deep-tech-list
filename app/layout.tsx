@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "./providers";
+import { Analytics } from "@vercel/analytics/react"
 
 // Import the fonts
 const GeistMonoVF = localFont({
@@ -27,7 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
         <body className={`${GeistMonoVF.variable} ${GeistVF.variable}`}>
-            <Providers>{children}</Providers>
+            <Providers>
+              {children}
+              <Analytics />
+            </Providers>
         </body>
     </html>
   );
