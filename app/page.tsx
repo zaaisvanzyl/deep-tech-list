@@ -80,7 +80,7 @@ export default function Home() {
       ? company.industry === filters.industry
       : true;
     return matchesSearch && matchesFunding && matchesHeadcount && matchesIndustry;
-  });
+  }).sort((a, b) => a.name.localeCompare(b.name)); // Sort companies alphabetically
 
   return (
     <Box bg="black" minHeight="100vh">
@@ -136,7 +136,11 @@ export default function Home() {
       </Container>
       <Box as="footer" textAlign="center" py={4} color="white">
         <Text>
-          Made in 🇨🇦 by{" "}
+          Made in{" "}
+          <Link href="https://en.wikipedia.org/wiki/Canada" target="_blank" isExternal>
+            🇨🇦
+          </Link>{" "}
+          by{" "}
           <Link href="https://x.com/zaaisvanzyl" target="_blank" isExternal>
             @zaaisvanzyl
           </Link>

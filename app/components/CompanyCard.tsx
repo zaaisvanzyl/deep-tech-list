@@ -1,5 +1,6 @@
 import { Box, HStack, VStack, Heading, Text, Link, Button, Flex, Badge } from "@chakra-ui/react";
 import { Industry } from "../data/industries";
+import { FaBriefcase, FaExternalLinkAlt, FaLink, FaMoneyBill, FaUser } from "react-icons/fa";
 
 interface CompanyCardProps {
   name: string;
@@ -35,8 +36,8 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
       borderColor="gray.600"
       transition="all 0.3s"
       _hover={{
-        transform: "translateY(-5px)",
         boxShadow: "0 10px 20px rgba(255, 255, 255, 0.1), 0 6px 6px rgba(255, 255, 255, 0.05)",
+        borderColor: "white",
       }}
     >
       <VStack align="start" spacing={3}>
@@ -47,24 +48,45 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
           <Badge variant="outline" color="white" borderColor="white">{industry}</Badge>
           <Badge variant="outline" color="white" borderColor="white">{hqLocation}</Badge>
           <Badge variant="outline" color="white" borderColor="white">Founded {foundedYear}</Badge>
-          <Badge variant="outline" color="white" borderColor="white">Funding: {estFunding}</Badge>
-          <Badge variant="outline" color="white" borderColor="white">Headcount: {estHeadcount}</Badge>
+          <Badge variant="outline" color="white" borderColor="white">
+            <Flex align="center">
+              <FaMoneyBill style={{ marginRight: '0.5rem' }} />
+              {estFunding}
+            </Flex>
+          </Badge>
+          <Badge variant="outline" color="white" borderColor="white">
+            <Flex align="center">
+              <FaUser style={{ marginRight: '0.5rem' }} />
+              {estHeadcount}
+            </Flex>
+          </Badge>
         </Flex>
         <Text fontSize="sm">{description}</Text>
         <HStack spacing={4}>
-          <Link href={website} isExternal color="white" fontWeight="semibold" fontSize="sm">
-            Visit Website
-          </Link>
           <Button
             as="a"
             href={jobsLink}
             target="_blank"
             rel="noopener noreferrer"
             colorScheme="gray"
-            size="xs"
+            size="sm"
+            leftIcon={<FaBriefcase />}
           >
             View Jobs
           </Button>
+          <Link
+            href={website}
+            target="_blank"
+            rel="noopener noreferrer"
+            color="gray.400"
+            fontSize="sm"
+            display="inline-flex"
+            alignItems="center"
+            _hover={{ color: "white", textDecoration: "underline" }}
+          >
+            Visit Website
+            <FaExternalLinkAlt style={{ marginLeft: '0.5rem' }} />
+          </Link>
         </HStack>
       </VStack>
     </Box>

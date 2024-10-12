@@ -3,9 +3,12 @@ import {
   Box,
   Input,
   Select,
+  VStack,
   HStack,
   Button,
   useColorModeValue,
+  useBreakpointValue,
+  Flex,
 } from '@chakra-ui/react';
 import { Industry } from '../data/industries';
 
@@ -64,6 +67,8 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
     },
   };
 
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
   return (
     <Box
       p={2}
@@ -71,64 +76,60 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
       borderWidth={1}
       borderColor="gray.600"
     >
-      <HStack spacing={2} align="center">
+      <Flex direction={isMobile ? "column" : "row"} gap={2} align="center">
         <Input
           placeholder="Search"
           name="searchTerm"
           value={filters.searchTerm}
           onChange={handleInputChange}
           size="sm"
-          width="600px"
+          width={isMobile ? "100%" : "40%"}
           color={textColor}
           _placeholder={{ color: 'gray.500' }}
           {...inputStyles}
         />
-        <HStack spacing={1}>
-          <Select
-            placeholder="Funding"
-            name="funding"
-            value={filters.funding}
-            onChange={handleInputChange}
-            size="sm"
-            width="160px"
-            color={textColor}
-            {...inputStyles}
-          >
-            <option value="0">$0 - $10M</option>
-            <option value="10000000">$10M - $100M</option>
-            <option value="100000000">$100M - $1B</option>
-            <option value="1000000000">$1B - $10B</option>
-            <option value="10000000000">$10B+</option>
-          </Select>
-        </HStack>
-        <HStack spacing={1}>
-          <Select
-            placeholder="Headcount"
-            name="headcount"
-            value={filters.headcount}
-            onChange={handleInputChange}
-            size="sm"
-            width="160px"
-            color={textColor}
-            {...inputStyles}
-          >
-            <option value="1">1 - 10</option>
-            <option value="11">11 - 50</option>
-            <option value="51">51 - 100</option>
-            <option value="101">101 - 500</option>
-            <option value="501">501 - 1,000</option>
-            <option value="1001">1,001 - 5,000</option>
-            <option value="5001">5,001 - 10,000</option>
-            <option value="10001">10,000+</option>
-          </Select>
-        </HStack>
+        <Select
+          placeholder="Funding"
+          name="funding"
+          value={filters.funding}
+          onChange={handleInputChange}
+          size="sm"
+          width={isMobile ? "100%" : "15%"}
+          color={textColor}
+          {...inputStyles}
+        >
+          <option value="0">$0 - $10M</option>
+          <option value="10000000">$10M - $100M</option>
+          <option value="100000000">$100M - $1B</option>
+          <option value="1000000000">$1B - $10B</option>
+          <option value="10000000000">$10B+</option>
+        </Select>
+        <Select
+          placeholder="Headcount"
+          name="headcount"
+          value={filters.headcount}
+          onChange={handleInputChange}
+          size="sm"
+          width={isMobile ? "100%" : "15%"}
+          color={textColor}
+          {...inputStyles}
+        >
+          <option value="1">1 - 10</option>
+          <option value="11">11 - 50</option>
+          <option value="51">51 - 100</option>
+          <option value="101">101 - 500</option>
+          <option value="501">501 - 1,000</option>
+          <option value="1001">1,001 - 5,000</option>
+          <option value="5001">5,001 - 10,000</option>
+          <option value="10001">10,000+</option>
+        </Select>
         <Select
           placeholder="Industry"
           name="industry"
           value={filters.industry}
           onChange={handleInputChange}
           size="sm"
-          width="160px"
+          width={isMobile ? "100%" : "15%"}
           color={textColor}
           {...inputStyles}
         >
@@ -146,6 +147,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
           _hover={{
             backgroundColor: 'rgba(255, 255, 255, 0.2)',
           }}
+          width={isMobile ? "100%" : "auto"}
         >
           Apply
         </Button>
@@ -159,10 +161,11 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
             backgroundColor: 'rgba(255, 255, 255, 0.2)',
             color: 'white',
           }}
+          width={isMobile ? "100%" : "auto"}
         >
           Reset
         </Button>
-      </HStack>
+      </Flex>
     </Box>
   );
 };

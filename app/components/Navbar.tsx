@@ -1,12 +1,20 @@
-import { Box, Flex, Spacer, Text, Button } from "@chakra-ui/react";
+import { Box, Flex, Spacer, Text, Button, useBreakpointValue } from "@chakra-ui/react";
 import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
   const router = useRouter();
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
     <Box as="nav" bg="black" py={4}>
-      <Flex maxW="container.xl" mx="auto" alignItems="center" px={4}>
+      <Flex 
+        maxW="container.xl" 
+        mx="auto" 
+        alignItems="center" 
+        px={4} 
+        flexDirection={isMobile ? "column" : "row"}
+        gap={isMobile ? 4 : 0}
+      >
         <Text
           fontSize="xl"
           fontWeight="bold"
@@ -15,10 +23,22 @@ const Navbar = () => {
           transition="all 0.3s"
           onClick={() => router.push('/')}
         >
-          🚀 Deep Tech List
+          Deep Tech List
         </Text>
-        <Spacer />
-        <Flex gap={4}>
+        {!isMobile && <Spacer />}
+        <Flex 
+          gap={4} 
+          alignItems="center" 
+          flexDirection={isMobile ? "column" : "row"}
+          width={isMobile ? "100%" : "auto"}
+        >
+          <Text 
+            color="gray.400" 
+            fontSize="sm" 
+            textAlign={isMobile ? "center" : "left"}
+          >
+            Updated: October 12, 2024
+          </Text>
           <Button
             bg="transparent"
             color="white"
@@ -35,6 +55,8 @@ const Navbar = () => {
             }}
             transition="all 0.2s"
             size="sm"
+            onClick={() => window.open('https://forms.gle/cqxuaKWFHrLWEoMF7', '_blank')}
+            width={isMobile ? "100%" : "auto"}
           >
             Submit Company
           </Button>
