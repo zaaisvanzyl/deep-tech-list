@@ -81,11 +81,6 @@ export default function Home() {
       <Navbar />
       <Container maxW="container.xl" py={12}>
         <VStack spacing={6} align="stretch">
-          <Box textAlign="left" color="white">
-            <Text fontSize="xl" mx="auto" lineHeight="tall">
-              Explore a curated list of innovative deep tech companies that are shaping the future of technology.
-            </Text>
-          </Box>
           <Filter onFilterChange={handleFilterChange} />
           <VStack spacing={6} align="stretch">
             {filteredCompanies.map((company) => (
@@ -105,10 +100,10 @@ export default function Home() {
           </VStack>
         </VStack>
       </Container>
-      <Box as="footer" textAlign="center" py={4} bg="gray.800" color="white">
+      <Box as="footer" textAlign="center" py={4} color="white">
         <Text>
           Made in 🇨🇦 by{" "}
-          <Link href="https://twitter.com/zaaisvanzyl" isExternal color="teal.200">
+          <Link href="https://x.com/zaaisvanzyl" target="_blank" isExternal>
             @zaaisvanzyl
           </Link>
         </Text>

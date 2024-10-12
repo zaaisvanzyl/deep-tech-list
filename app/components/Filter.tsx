@@ -78,7 +78,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
           value={filters.searchTerm}
           onChange={handleInputChange}
           size="sm"
-          width="800px"
+          width="600px"
           color={textColor}
           _placeholder={{ color: 'gray.500' }}
           {...inputStyles}
@@ -90,7 +90,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
             value={filters.funding}
             onChange={handleInputChange}
             size="sm"
-            width="120px"
+            width="160px"
             color={textColor}
             {...inputStyles}
           >
@@ -108,7 +108,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
             value={filters.headcount}
             onChange={handleInputChange}
             size="sm"
-            width="120px"
+            width="160px"
             color={textColor}
             {...inputStyles}
           >
@@ -128,7 +128,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
           value={filters.industry}
           onChange={handleInputChange}
           size="sm"
-          width="120px"
+          width="160px"
           color={textColor}
           {...inputStyles}
         >
