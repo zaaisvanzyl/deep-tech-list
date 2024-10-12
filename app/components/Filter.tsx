@@ -6,9 +6,8 @@ import {
   HStack,
   Button,
   useColorModeValue,
-  Icon,
 } from '@chakra-ui/react';
-import { FaDollarSign, FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
+import { Industry } from '../data/industries';
 
 interface FilterProps {
   onFilterChange: (filters: FilterState) => void;
@@ -18,7 +17,6 @@ interface FilterState {
   searchTerm: string;
   funding: string;
   headcount: string;
-  location: string;
   industry: string;
 }
 
@@ -27,7 +25,6 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
     searchTerm: '',
     funding: '',
     headcount: '',
-    location: '',
     industry: '',
   });
 
@@ -45,14 +42,12 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
       searchTerm: '',
       funding: '',
       headcount: '',
-      location: '',
       industry: '',
     });
     onFilterChange({
       searchTerm: '',
       funding: '',
       headcount: '',
-      location: '',
       industry: '',
     });
   };
@@ -83,7 +78,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
           value={filters.searchTerm}
           onChange={handleInputChange}
           size="sm"
-          width="680px"
+          width="800px"
           color={textColor}
           _placeholder={{ color: 'gray.500' }}
           {...inputStyles}
@@ -99,9 +94,11 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
             color={textColor}
             {...inputStyles}
           >
-            <option value="0-10M">$0 - $10M</option>
-            <option value="10M-100M">$10M - $100M</option>
-            <option value="100M+">$100M+</option>
+            <option value="0">$0 - $10M</option>
+            <option value="10000000">$10M - $100M</option>
+            <option value="100000000">$100M - $1B</option>
+            <option value="1000000000">$1B - $10B</option>
+            <option value="10000000000">$10B+</option>
           </Select>
         </HStack>
         <HStack spacing={1}>
@@ -115,25 +112,16 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
             color={textColor}
             {...inputStyles}
           >
-            <option value="1-100">1 - 100</option>
-            <option value="101-1000">101 - 1,000</option>
-            <option value="1000+">1,000+</option>
+            <option value="1">1 - 10</option>
+            <option value="11">11 - 50</option>
+            <option value="51">51 - 100</option>
+            <option value="101">101 - 500</option>
+            <option value="501">501 - 1,000</option>
+            <option value="1001">1,001 - 5,000</option>
+            <option value="5001">5,001 - 10,000</option>
+            <option value="10001">10,000+</option>
           </Select>
         </HStack>
-        <Select
-          placeholder="Location"
-          name="location"
-          value={filters.location}
-          onChange={handleInputChange}
-          size="sm"
-          width="120px"
-          color={textColor}
-          {...inputStyles}
-        >
-          <option value="US">United States</option>
-          <option value="EU">Europe</option>
-          <option value="APAC">Asia Pacific</option>
-        </Select>
         <Select
           placeholder="Industry"
           name="industry"
@@ -144,10 +132,9 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
           color={textColor}
           {...inputStyles}
         >
-          <option value="AI">AI</option>
-          <option value="Robotics">Robotics</option>
-          <option value="Biotech">Biotech</option>
-          <option value="Quantum">Quantum Computing</option>
+          {Object.values(Industry).map((industry) => (
+            <option key={industry} value={industry}>{industry}</option>
+          ))}
         </Select>
         <Button
           variant="outline"
