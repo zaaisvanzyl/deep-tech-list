@@ -17,7 +17,7 @@ const GeistVF = localFont({
 
 export const metadata: Metadata = {
   title: "Deep Tech List",
-  description: "Directory of some of the most ambitious startups",
+  description: "A directory of some of the most ambitious startups",
 };
 
 export default function RootLayout({

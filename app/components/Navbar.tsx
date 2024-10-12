@@ -1,9 +1,21 @@
 import { Box, Flex, Spacer, Text, Button, useBreakpointValue } from "@chakra-ui/react";
 import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 
 const Navbar = () => {
   const router = useRouter();
-  const isMobile = useBreakpointValue({ base: true, md: false });
+  const [isMobile, setIsMobile] = useState(false);
+  const breakpoint = useBreakpointValue({ base: true, md: false });
+
+  useEffect(() => {
+    if (breakpoint !== undefined) {
+      setIsMobile(breakpoint);
+    }
+  }, [breakpoint]);
+
+  if (breakpoint === undefined) {
+    return null; // or a loading state
+  }
 
   return (
     <Box as="nav" bg="black" py={4}>

@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Input,
   Select,
-  VStack,
-  HStack,
   Button,
   useColorModeValue,
   useBreakpointValue,
@@ -30,6 +28,11 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
     headcount: '',
     industry: '',
   });
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -41,18 +44,14 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
   };
 
   const handleResetFilters = () => {
-    setFilters({
+    const resetFilters = {
       searchTerm: '',
       funding: '',
       headcount: '',
       industry: '',
-    });
-    onFilterChange({
-      searchTerm: '',
-      funding: '',
-      headcount: '',
-      industry: '',
-    });
+    };
+    setFilters(resetFilters);
+    onFilterChange(resetFilters);
   };
 
   const textColor = useColorModeValue('gray.200', 'gray.400');
@@ -68,6 +67,10 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
   };
 
   const isMobile = useBreakpointValue({ base: true, md: false });
+
+  if (!isMounted) {
+    return null; // Return null on the server-side and first client-side render
+  }
 
   return (
     <Box
