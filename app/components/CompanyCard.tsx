@@ -1,4 +1,5 @@
 import { Box, HStack, VStack, Heading, Text, Link, Button, Flex, Badge } from "@chakra-ui/react";
+import { Industry } from "../data/industries";
 
 interface CompanyCardProps {
   name: string;
@@ -9,6 +10,7 @@ interface CompanyCardProps {
   website: string;
   jobsLink: string;
   description: string;
+  industry: Industry;
 }
 
 const CompanyCard: React.FC<CompanyCardProps> = ({
@@ -20,6 +22,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
   website,
   jobsLink,
   description,
+  industry,
 }) => {
   return (
     <Box
@@ -27,30 +30,29 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
       borderRadius="lg"
       overflow="hidden"
       p={4}
-      bg="gray.800"
+      bg="transparent"
       color="white"
-      boxShadow="0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)"
+      borderColor="gray.600"
       transition="all 0.3s"
       _hover={{
         transform: "translateY(-5px)",
-        boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.1)",
+        boxShadow: "0 10px 20px rgba(255, 255, 255, 0.1), 0 6px 6px rgba(255, 255, 255, 0.05)",
       }}
     >
       <VStack align="start" spacing={3}>
-        <Heading size="md" color="teal.300">
+        <Heading size="md" color="white">
           {name}
         </Heading>
         <Flex wrap="wrap" gap={2}>
-          <Badge colorScheme="blue">{hqLocation}</Badge>
-          <Badge colorScheme="green">Founded {foundedYear}</Badge>
+          <Badge variant="outline" color="white" borderColor="white">{industry}</Badge>
+          <Badge variant="outline" color="white" borderColor="white">{hqLocation}</Badge>
+          <Badge variant="outline" color="white" borderColor="white">Founded {foundedYear}</Badge>
+          <Badge variant="outline" color="white" borderColor="white">Funding: {estFunding}</Badge>
+          <Badge variant="outline" color="white" borderColor="white">Headcount: {estHeadcount}</Badge>
         </Flex>
         <Text fontSize="sm">{description}</Text>
-        <HStack spacing={4} fontSize="sm">
-          <Text><strong>Funding:</strong> {estFunding}</Text>
-          <Text><strong>Headcount:</strong> {estHeadcount}</Text>
-        </HStack>
         <HStack spacing={4}>
-          <Link href={website} isExternal color="teal.200" fontWeight="semibold" fontSize="sm">
+          <Link href={website} isExternal color="white" fontWeight="semibold" fontSize="sm">
             Visit Website
           </Link>
           <Button
@@ -58,7 +60,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
             href={jobsLink}
             target="_blank"
             rel="noopener noreferrer"
-            colorScheme="teal"
+            colorScheme="gray"
             size="xs"
           >
             View Jobs

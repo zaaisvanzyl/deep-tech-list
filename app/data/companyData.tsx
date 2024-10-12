@@ -1,3 +1,5 @@
+import { Industry } from './industries';
+
 export const companyData = [
   {
     id: 1,
@@ -9,6 +11,7 @@ export const companyData = [
     website: "https://www.google.com",
     jobsLink: "https://careers.google.com",
     description: "Google is a multinational technology company specializing in internet-related services and products, including search engines, cloud computing, software, and hardware.",
+    industry: Industry.Software,
   },
   {
     id: 2,
@@ -20,6 +23,7 @@ export const companyData = [
     website: "https://www.spacex.com",
     jobsLink: "https://www.spacex.com/careers",
     description: "SpaceX is an aerospace manufacturer and space transportation services company, known for developing reusable rockets and spacecraft to reduce space transportation costs.",
+    industry: Industry.Space,
   },
   {
     id: 3,
@@ -31,6 +35,7 @@ export const companyData = [
     website: "https://www.tesla.com",
     jobsLink: "https://www.tesla.com/careers",
     description: "Tesla is an electric vehicle and clean energy company, focusing on electric car manufacturing, battery energy storage, and solar panel and solar roof tile manufacturing.",
+    industry: Industry.Manufacturing,
   },
   {
     id: 4,
@@ -42,6 +47,7 @@ export const companyData = [
     website: "https://www.bostondynamics.com",
     jobsLink: "https://www.bostondynamics.com/careers",
     description: "Boston Dynamics is an engineering and robotics design company known for developing highly advanced robots, including the humanoid Atlas and the quadruped Spot.",
+    industry: Industry.Robotics,
   },
   {
     id: 5,
@@ -53,5 +59,6 @@ export const companyData = [
     website: "https://www.deepmind.com",
     jobsLink: "https://deepmind.com/careers",
     description: "DeepMind is a leading artificial intelligence research laboratory, focusing on developing advanced AI systems and applying them to solve complex scientific and technological challenges.",
+    industry: Industry.Software,
   },
 ];
