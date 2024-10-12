@@ -11,12 +11,11 @@ const Navbar = () => {
           fontSize="xl"
           fontWeight="bold"
           color="white"
-          _hover={{ color: "gray.300" }}
           cursor="pointer"
-          transition="color 0.2s"
+          transition="all 0.3s"
           onClick={() => router.push('/')}
         >
-          Deep Tech List
+          🚀 Deep Tech List
         </Text>
         <Spacer />
         <Flex gap={4}>

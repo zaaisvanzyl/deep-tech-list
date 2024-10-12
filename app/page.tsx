@@ -1,11 +1,12 @@
 "use client";
 
-import { Box, VStack, Container, Text, Link, Flex, Icon } from "@chakra-ui/react";
+import { Box, VStack, Container, Text, Link, Flex, Icon, Image } from "@chakra-ui/react";
 import Navbar from "./components/Navbar";
 import CompanyCard from "./components/CompanyCard";
 import { companyData } from "./data/companyData";
 import Filter from "./components/Filter";
 import { useState } from "react";
+import { CloseIcon } from "@chakra-ui/icons";
 
 export default function Home() {
   const [filters, setFilters] = useState({
@@ -14,6 +15,11 @@ export default function Home() {
     headcount: "",
     industry: "",
   });
+  const [isImageVisible, setIsImageVisible] = useState(true);
+
+  const handleImageClose = () => {
+    setIsImageVisible(false);
+  };
 
   const handleFilterChange = (newFilters: any) => {
     setFilters(newFilters);
@@ -81,6 +87,34 @@ export default function Home() {
       <Navbar />
       <Container maxW="container.xl" py={12}>
         <VStack spacing={6} align="stretch">
+        {isImageVisible && (
+            <Box
+              position="relative"
+              borderRadius="md"
+              overflow="hidden"
+              height="200px"
+              width="100%"
+            >
+              <Image
+                src="/deep-tech-list-image-1.webp"
+                alt="Header Image"
+                objectFit="cover"
+                width="100%"
+                height="100%"
+              />
+              {/* <Box
+                position="absolute"
+                top="0"
+                right="0"
+                p={2}
+                cursor="pointer"
+                onClick={handleImageClose}
+                color="white"
+              >
+                <CloseIcon />
+              </Box> */}
+            </Box>
+          )}
           <Filter onFilterChange={handleFilterChange} />
           <VStack spacing={6} align="stretch">
             {filteredCompanies.map((company) => (
