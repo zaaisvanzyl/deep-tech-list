@@ -324,17 +324,5 @@ export const companyData = [
     jobsLink: "https://www.synthego.com/careers",
     description: "Synthego offers a continuum of best-in-class solutions designed for advancing CRISPR therapeutics.",
     industry: Industry.BioHealth,
-  },
-  {
-    id: 27,
-    name: "Impulse Space",
-    hqLocation: "Redondo Beach, CA",
-    foundedYear: 2021,
-    estFunding: 225000000,
-    estHeadcount: 150,
-    website: "https://www.impulsespace.com/",
-    jobsLink: "https://www.impulsespace.com/careers",
-    description: "Impulse provides agile, economical in-space payload delivery and hosting.",
-    industry: Industry.Aerospace,
   }
 ];
