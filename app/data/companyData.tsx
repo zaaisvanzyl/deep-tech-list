@@ -4,7 +4,7 @@ export const companyData = [
   {
     id: 1,
     name: "Navier",
-    hqLocation: "San Francisco, California",
+    hqLocation: "San Francisco, CA",
     foundedYear: 2020,
     estFunding: 16000000,
     estHeadcount: 20,
@@ -280,7 +280,7 @@ export const companyData = [
     {
     id: 24,
     name: "Neko Health",
-    hqLocation: "Stockholm, Sweden",
+    hqLocation: "Stockholm, SE",
     foundedYear: 2018,
     estFunding: 65000000,
     estHeadcount: 50,
