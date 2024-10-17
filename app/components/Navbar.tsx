@@ -49,7 +49,7 @@ const Navbar = () => {
             fontSize="sm" 
             textAlign={isMobile ? "center" : "left"}
           >
-            Updated: October 13, 2024
+            Updated: October 16, 2024
           </Text>
           <Button
             bg="transparent"
