@@ -23,7 +23,7 @@ export const companyData = [
     website: "https://www.orchidhealth.com/",
     jobsLink: "https://www.orchidhealth.com/careers",
     description: "The world’s most advanced whole genome screening for embryos.",
-    industry: Industry.BioHealth,
+    industry: Industry.Quantum,
   },
   {
     id: 3,
