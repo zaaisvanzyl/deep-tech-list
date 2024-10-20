@@ -8,4 +8,6 @@ export enum Industry {
   Software = "Software",
   AI = "AI",
   Nuclear = "Nuclear",
+  Quantum = "Quantum",
+  Hardware = "Hardware"
 }
